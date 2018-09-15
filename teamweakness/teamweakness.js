@@ -379,11 +379,12 @@ var fairy = {
 }
 
 
-function getType() {
+function getType(pokemonid,typeOutputid) {
   //create a request variable and assign a new XMLHttpRequest object to it
   var request = new XMLHttpRequest();
+  console.log(pokemonid);
 
-  let pokemon = document.getElementById("pokemon-name").value;
+  let pokemon = document.getElementById(pokemonid).value;
 
   let type0 = 1;
   let type1;
@@ -403,12 +404,12 @@ function getType() {
       if (data["types"].length === 2) {
         type1 = data["types"][1]["type"]["name"];
         console.log(type1 + "/" + type0);
-        document.getElementById("typeOutput").innerHTML = "Type: " + type1 + "/" + type0;
+        document.getElementById(typeOutputid).innerHTML = "Type: " + type1 + "/" + type0;
       }
       // if the pokemon has one type
       else {
         console.log(type0);
-        document.getElementById("typeOutput").innerHTML = "Type: " + type0;
+        document.getElementById(typeOutputid).innerHTML = "Type: " + type0;
       }
     }
 
@@ -549,14 +550,14 @@ function getType() {
     console.log(firstType + secondType);
 
   // clear the inner html of typeOutput
-  document.getElementById("typeOutput").innerHTML = "";
+  document.getElementById(typeOutputid).innerHTML = "";
 
   if (secondType == "na" ) {
     console.log("na2na");
     console.log(firstType[weakness]);
    for (var weakness in firstType){
     if (firstType[weakness] >= 2) {
-    document.getElementById("typeOutput").innerHTML += '<p>' + weakness + ": " + (firstType[weakness]) + "x" + '</p>';
+    document.getElementById(typeOutputid).innerHTML += '<p>' + weakness + ": " + (firstType[weakness]) + "x" + '</p>';
     }
     }
   }
@@ -565,11 +566,11 @@ function getType() {
 
        if (firstType == secondType) {
          if (firstType[weakness] >= 2) {
-         document.getElementById("typeOutput").innerHTML += '<p>' + weakness + ": " + (firstType[weakness]) + "x" + '</p>';
+         document.getElementById(typeOutputid).innerHTML += '<p>' + weakness + ": " + (firstType[weakness]) + "x" + '</p>';
          }
        }
        else if ((firstType[weakness] * secondType[weakness]) >= 2) {
-         document.getElementById("typeOutput").innerHTML += '<p>' + weakness + ": " + (firstType[weakness] * secondType[weakness]) + "x" + '</p>';
+         document.getElementById(typeOutputid).innerHTML += '<p>' + weakness + ": " + (firstType[weakness] * secondType[weakness]) + "x" + '</p>';
        }
      }
     }

@@ -4,21 +4,42 @@
     <meta charset="utf-8">
     <title></title>
   </head>
+  <link rel="stylesheet" type="text/css" href="style.css">
   <body>
     <script src="teamweakness.js"></script>
 
-    <h1>Move Effectiveness Calculator</h1>
+    <h1>Team Weaknesses Calculator</h1>
 
-    Pokemon
-    <select id="pokemon-name">
-      <option value="bulbasaur">Bulbasaur</option>
-      <option value="squirtle">Squirtle</option>
-      <option value="charmander">Charmander</option>
-    </select>
-    <br/>
-    <input type="button" value="Calculate effectiveness" onclick="getType()"/>
-    <br/>
-    <div id="typeOutput"></div>
+    <div id="team">
+      <div id="pokemon1">
+        Pokemon
+        <select id="pokemon-name1">
+          <option value="bulbasaur">Bulbasaur</option>
+          <option value="squirtle">Squirtle</option>
+          <option value="charmander">Charmander</option>
+          <option value="tornadus-incarnate">Tornadus (Incarnate)</option>
+          <option value="solrock">Solrock</option>
+        </select>
+        <br/>
+        <input type="button" value="Calculate effectiveness" onclick="getType('pokemon-name1','typeOutput1')"/>
+        <br/>
+        <div id="typeOutput1"></div>
+      </div>
+
+      <div id="pokemon2">
+        Pokemon
+        <select id="pokemon-name2">
+          <option value="bulbasaur">Bulbasaur</option>
+          <option value="squirtle">Squirtle</option>
+          <option value="charmander">Charmander</option>
+          <option value="tornadus-incarnate">Tornadus (Incarnate)</option>
+        </select>
+        <br/>
+        <input type="button" value="Calculate effectiveness" onclick="getType('pokemon-name2','typeOutput2')"/>
+        <br/>
+        <div id="typeOutput2"></div>
+      </div>
+    </div>
 
   </body>
 </html>
